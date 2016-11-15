@@ -18,7 +18,7 @@ echo [*]
 echo [*] IF DEVICE IS LISTED PRESS ANY KEY ON COMPUTER TO START
 echo [*]
 adb devices
-pause > nul
+pause
 adb wait-for-device
 cls
 echo [*] copying dirtycow to /data/local/tmp/dirtycow
@@ -60,5 +60,5 @@ echo [*]
 echo.--------------------------------------------------------------------------------------------
 echo.--------------------------------------------------------------------------------------------
 echo [*] PRESS ANY KEY TO FINISH THIS SCRIPT.
-pause > nul
+pause
 exit
