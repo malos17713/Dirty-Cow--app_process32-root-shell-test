@@ -1,11 +1,11 @@
-echo mkdir /data/local/test
+echo #mkdir /data/local/test
 mkdir /data/local/test
-echo /system/bin/chmod 0777 /data/local/test
+echo #/system/bin/chmod 0777 /data/local/test
 /system/bin/chmod 0777 /data/local/test
-echo ls -l /data/local
+echo #ls -l /data/local
 ls -l /data/local
-echo whoami
+echo #whoami
 whoami
-echo pwd
+echo #pwd
 pwd
 exit
