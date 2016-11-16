@@ -1,4 +1,4 @@
-# Samsung_Galaxy_Express_Prime-SM-J320a
+# Test root shell for any android phone with app-process32
 Test root shell for any android phone with app-process32
 
 
