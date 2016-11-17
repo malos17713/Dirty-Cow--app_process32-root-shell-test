@@ -13,10 +13,10 @@ echo [*] IF NO DEVICE LISTED YOU ARE NOT READY TO RUN THIS SCRIPT. CLOSE THIS WI
 echo [*] 
 echo [*] IF DEVICE IS LISTED PRESS ANY KEY ON COMPUTER TO START
 echo [*]
+adb wait-for-device
+adb devices
 echo -n "to continue press [enter]: "
 read start
-adb devices
-adb wait-for-device
 #clear
 echo [*] copying dirtycow to /data/local/tmp/dirtycow
 adb push pushed/dirtycow /data/local/tmp/dirtycow
