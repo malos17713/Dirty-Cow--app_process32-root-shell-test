@@ -38,7 +38,8 @@ echo ---------------------------------------------------------------------------
 echo [*] DONE PUSHING FILES TO PHONE. NOW WE ARE GOING TO TEMP WRITE OVER THE APP_PROCESS
 echo [*] WITH A MODIFIED VERSION THAT HAS lsh IN IT USING A SYSTEM-SERVER AS ROOT SHELL
 echo [*] THIS STEP WILL CAUSE PHONE TO DO A SOFT REBOOT AND WILL NOT RESPOND TO BUTTON PUSHES
-echo [*] 
+echo [*] Sleep 15 seconds to read notes
+sleep 15 
 adb shell /data/local/tmp/dirtycow /system/bin/app_process32 /data/local/tmp/recowvery-app_process32
 echo --------------------------------------------------------------------------------------------
 clear
@@ -50,6 +51,7 @@ echo ---------------------------------------------------------------------------
 echo [*] OPENING A ROOT SHELL ON THE NEWLY CREATED SYSTEM_SERVER
 echo [*] CREATE A NEW DIRECTORY AS A TEST
 echo [*] CHANGING PERMISSIONS ON NEW DIRECTORY
+echo [*] COPY busybox FROM tmp TO test SO IT BECOMES OWNED  BY ROOT
 adb shell "/data/local/tmp/busybox nc localhost 11112 < /data/local/tmp/cp_comands.txt"
 echo [*]  
 echo --------------------------------------------------------------------------------------------

