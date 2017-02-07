@@ -46,7 +46,7 @@ clear
 echo --------------------------------------------------------------------------------------------
 echo --------------------------------------------------------------------------------------------
 echo [*]WAITING 60 SECONDS FOR ROOT SHELL TO SPAWN
-sleep 60 > nul
+sleep 60
 echo --------------------------------------------------------------------------------------------
 echo [*] OPENING A ROOT SHELL ON THE NEWLY CREATED SYSTEM_SERVER
 echo [*] CREATE A NEW DIRECTORY AS A TEST
