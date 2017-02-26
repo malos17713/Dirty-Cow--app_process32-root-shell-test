@@ -65,10 +65,10 @@ USEAGE outside of using the scripts:
 
 14: /system/bin/chmod +s /data/local/test/busybox           
 
-15: ls -l /data/local/test                                  shows can chmod files that are owned by root                                 
+15: ls -l /data/local/test									 shows can chmod files that are owned by root                                 
 
-16: whoami                                                  shows the id of shell (root)
+16: whoami 													shows the id of shell (root)
 
-17: pwd                                                     shows the current dir
+17: pwd 													shows the current dir
 
 18: exit
