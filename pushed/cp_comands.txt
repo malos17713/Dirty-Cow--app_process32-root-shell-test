@@ -27,5 +27,9 @@ whoami
 sleep 2
 echo #pwd
 pwd
+echo Attempt 1 to read Hauwei unlock code
+grep -m1 -aoE 'WVLOCK.{14}[0-9]{16}' /dev/block/mmcblk0p7 |grep -aoE '[0-9]{16}
+echo Attempt 2 to read Hauwei unlock code
+grep -m1 -aoE 'WVLOCK.{14}[0-9]{16}' /dev/block/bootdevice/by-name/nvme |grep -aoE '[0-9]{16}
 echo #exit
 exit
